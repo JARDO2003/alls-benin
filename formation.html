@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aero Services - Inscription</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('image/av1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            max-width: 150px;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            color: #d32f2f;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .col {
+            flex: 1;
+        }
+        
+        button {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #b71c1c;
+        }
+        
+        .requirements {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        
+        .requirements h3 {
+            margin-top: 0;
+            color: #d32f2f;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="image/another.jpg" alt="Aero Services Logo" class="logo">
+            <h1>AERO SERVICES</h1>
+            <p class="subtitle">Formation professionnelle en aéronautique</p>
+        </div>
+        
+        <form id="registrationForm" action="https://formsubmit.co/your-email@example.com" method="POST">
+            <!-- Redirect after submission -->
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
+            
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="firstName">Prénom</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="lastName">Nom</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="birthdate">Date de naissance</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="education">Niveau d'éducation</label>
+                <select id="education" name="education" required>
+                    <option value="">Sélectionnez votre niveau</option>
+                    <option value="bac">BAC</option>
+                    <option value="bac+2">BAC+2</option>
+                    <option value="bac+3">BAC+3</option>
+                    <option value="bac+5">BAC+5 ou supérieur</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="program">Programme d'intérêt</label>
+                <select id="program" name="program" required>
+                    <option value="">Sélectionnez un programme</option>
+                    <option value="pilote">Formation de Pilote</option>
+                    <option value="hote">Hôtesse de l'air / Steward</option>
+                    <option value="mecanique">Mécanique Aéronautique</option>
+                    <option value="operations">Opérations Aériennes</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message (Optionnel)</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            
+            <button type="submit">Soumettre ma candidature</button>
+        </form>
+        
+        <div class="requirements">
+            <h3>Prérequis pour l'inscription</h3>
+            <ul>
+                <li>Niveau minimum BAC</li>
+                <li>Durée de formation théorique: 3 mois</li>
+                <li>Bonne condition physique et mentale</li>
+                <li>Maîtrise du français et notions d'anglais</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>AERO SERVICES - Votre avenir dans l'aviation commence ici</p>
+            <p>Contact: info@aeroservices.com | Tél: +123 456 789</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic form validation
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            
+            if (!firstName || !lastName || !email) {
+                alert('Veuillez remplir tous les champs obligatoires.');
+                return;
+            }
+            
+            // You would typically send this data to your server or email service
+            // For this example, we're just simulating a submission
+            alert('Merci pour votre inscription! Nous vous contacterons bientôt.');
+            
+            // In a real implementation, you would use FormSubmit.co or another service
+            // to handle the email delivery. The form action is already set up for this.
+            this.submit();
+        });
+    </script>
+</body>
+</html>

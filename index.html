@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alls Store</title>
+    <style>
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('image/another.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: rgb(251, 22, 22);
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            background: rgba(78, 3, 3, 0.8);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #222, #444);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            margin: 0 auto 20px auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* Style des boîtes */
+        .box {
+            border: 3px solid black;
+            padding: 15px;
+            margin: 20px 0;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Fond d'écran pour chaque cadre */
+        .store {
+            background-image: url('image/maillots.jpg');
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode: overlay;
+        }
+
+        .food {
+            background-image: url('image/logo.jpg');
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode: overlay;
+        }
+
+        /* Style du slider */
+        .slider-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            margin: 10px 0;
+        }
+
+        .slider-container::-webkit-scrollbar {
+            height: 6px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
+        }
+
+        .slider-container::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 3px;
+        }
+
+        .slider {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.5s ease-in-out;
+            padding: 5px 0;
+        }
+
+        /* Style des cartes produits */
+        .card {
+            background: white;
+            border: 2px solid black;
+            border-radius: 12px;
+            width: 150px;
+            padding: 12px;
+            text-align: center;
+            flex: 0 0 auto;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .card h3 {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .card button {
+            background: linear-gradient(to right, #0056b3, #007bff);
+            color: white;
+            padding: 8px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 8px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .card button:hover {
+            background: linear-gradient(to right, #004494, #0062cc);
+        }
+
+        /* Style de la boîte de saisie */
+        .input-box {
+            display: flex;
+            justify-content: center;
+            margin: 25px 0;
+        }
+
+        input {
+            padding: 10px 15px;
+            width: 70%;
+            border: 2px solid #333;
+            border-radius: 8px 0 0 8px;
+            font-size: 16px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .send-btn {
+            background: linear-gradient(to right, #0056b3, #007bff);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 0 8px 8px 0;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .send-btn:hover {
+            background: linear-gradient(to right, #004494, #0062cc);
+        }
+
+        /* Styles spécifiques pour mobile */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .header {
+                font-size: 24px;
+                padding: 12px;
+                width: 95%;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            
+            .box {
+                padding: 12px;
+                margin: 15px 0;
+                border-width: 2px;
+            }
+            
+            h1, h2 {
+                font-size: 20px;
+                padding: 8px 12px;
+            }
+            
+            .slider-container {
+                padding: 8px;
+            }
+            
+            .card {
+                width: 130px;
+                padding: 8px;
+            }
+            
+            .card img {
+                height: 90px;
+            }
+            
+            input {
+                width: 65%;
+                padding: 10px;
+            }
+            
+            .send-btn {
+                padding: 10px 15px;
+            }
+        }
+
+        /* Styles pour très petits écrans */
+        @media screen and (max-width: 400px) {
+            body {
+                padding: 10px;
+            }
+            
+            .card {
+                width: 110px;
+            }
+            
+            .card img {
+                height: 80px;
+            }
+            
+            .header {
+                font-size: 20px;
+                padding: 10px;
+            }
+            
+            .slider-container {
+                padding: 6px;
+            }
+            
+            input {
+                width: 60%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">Bienvenue sur Alls BENIN</div>
+    <button onclick="window.open('alls.html', '_blank')">A PROPOS DE ALLS😊</button></div>
+
+    <div class="container">
+
+        <div class="box store">
+            <h2>IMPRIMERIE PARAISO</h2>
+            <div class="slider-container" id="products">
+                <div class="slider">
+                    <div class="card"><img src="image/IP CAHIER.jpg" alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('paraiso.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/IP HABITS.jpg" alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('paraiso.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/IP7.jpg" alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('paraiso.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/IP4.jpg" alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('paraiso.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/IP HABITS.jpg" alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('paraiso.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/ip1.jpg" alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('paraiso.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/IP2.jpg" alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('paraiso.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/IP6.jpg" alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('paraiso.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/IP8.jpg" alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('paraiso.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/LOGO PAPA.jpg" alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('paraiso.html', '_blank')">Visiter</button></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-box">
+            <input type="text" placeholder="Écrivez-nous...">
+            <button class="send-btn">Send</button>
+        </div>
+
+        <div class="box food">
+            <h2>VOYAGER AVEC ALLS</h2>
+            <div class="slider-container" id="food-items">
+                <div class="slider">
+                    <div class="card"><img src="image/av1.jpg"  alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('airline.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/AV2.jpg"  alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('airline.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/AV3.jpg"  alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('airline.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/AV4.jpg"  alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('airline.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/av1.jpg"  alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('airline.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/AV2.jpg"  alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('airline.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/AV3.jpg"  alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('airline.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/AV4.jpg"  alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('airline.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/av1.jpg"  alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('airline.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/AV2.jpg"  alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('airline.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/AV3.jpg"  alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('airline.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/AV4.jpg"  alt="Crêpe"><h3></h3>ALLs<button onclick="window.open('airline.html', '_blank')">Visiter</button></div>
+                </div>
+            </div>
+        </div>
+            
+        <div class="box food">
+            <h1>AERO FORMATION</h1>
+            <div class="slider-container" id="food-items">
+                <div class="slider">
+                    <div class="card"><img src="image/aero1.jpg"  alt="Crêpe"><h3></h3>ALLS<button onclick="window.open('formation.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/aero2.jpg"  alt="Crêpe"><h3>ALLS</h3><button onclick="window.open('formation.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/aero2.jpg"  alt="Crêpe"><h3>ALLS</h3><button onclick="window.open('formation.html', '_blank')">Visiter</button></div>
+                    <div class="card"><img src="image/AV2.jpg"  alt="Crêpe"><h3>ALLS</h3><button onclick="window.open('formation.html', '_blank')">Visiter</button></div>
+                </div>
+            </div>
+        </div>
+                
+
+            </div>
+        </div>
+    
+        
+    </div>
+
+    <script>
+        function autoScroll(id, speed = 2) {
+            let container = document.getElementById(id);
+            let step = speed; // Vitesse du défilement
+            let scrollAmount = 0;
+    
+            function scrollContent() {
+                container.scrollLeft += step;
+                scrollAmount += step;
+    
+                // Revenir au début lorsque la fin est atteinte
+                if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+                    container.scrollLeft = 0;
+                    scrollAmount = 0;
+                }
+    
+                requestAnimationFrame(scrollContent);
+            }
+    
+            scrollContent();
+        }
+    
+        window.onload = () => {
+            autoScroll('products', 1.5);  // Ajuste la vitesse si besoin
+            autoScroll('food-items', 1.5);
+        };
+    </script>
+    
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aero Services - Inscription</title>
+    <title>Aero Formations - Inscription</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -106,14 +106,32 @@
             color: #666;
             font-size: 14px;
         }
+        
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 3px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .next-session {
+            background-color: #d32f2f;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img src="image/another.jpg" alt="Aero Services Logo" class="logo">
-            <h1>AERO SERVICES</h1>
-            <p class="subtitle">Formation professionnelle en aéronautique</p>
+            <img src="image/another.jpg" alt="Aero Formations Logo" class="logo">
+            <h1>AERO FORMATIONS</h1>
+            <p class="subtitle">Devenez expert(e) en aéronautique, billetterie, gestion d'agence de voyages et tourisme</p>
+            <div class="next-session">Prochaine rentrée : 05 Mai 2025</div>
         </div>
         
         <form id="registrationForm" action="https://formsubmit.co/your-email@example.com" method="POST">
@@ -165,10 +183,20 @@
                 <label for="program">Programme d'intérêt</label>
                 <select id="program" name="program" required>
                     <option value="">Sélectionnez un programme</option>
-                    <option value="pilote">Formation de Pilote</option>
-                    <option value="hote">Hôtesse de l'air / Steward</option>
-                    <option value="mecanique">Mécanique Aéronautique</option>
-                    <option value="operations">Opérations Aériennes</option>
+                    <optgroup label="Aéronautique">
+                        <option value="pilote">Formation de Pilote</option>
+                        <option value="hote">Hôtesse de l'air / Steward</option>
+                        <option value="mecanique">Mécanique Aéronautique</option>
+                        <option value="operations">Opérations Aériennes</option>
+                    </optgroup>
+                    <optgroup label="Tourisme et Agence de Voyages">
+                        <option value="agent_conseil">Agent et Conseiller Voyages</option>
+                        <option value="agent_reservation">Agent de Réservation et Billettiste</option>
+                        <option value="admin_chef">Administrateur et Chef d'Agences</option>
+                        <option value="marketing">Marketeur des Services de Voyages</option>
+                        <option value="guide">Guide Accompagnateur de Tourisme</option>
+                        <option value="hotesse_accueil">Hôtesse d'Accueil à l'Aéroport et au Salon d'Honneur</option>
+                    </optgroup>
                 </select>
             </div>
             
@@ -183,16 +211,16 @@
         <div class="requirements">
             <h3>Prérequis pour l'inscription</h3>
             <ul>
-                <li>Niveau minimum BAC</li>
-                <li>Durée de formation théorique: 3 mois</li>
+                <li>Niveau minimum <span class="highlight">BAC</span></li>
+                <li>Durée totale de formation : <span class="highlight">6 mois</span> (3 mois de théorie + 3 mois de stage pratique)</li>
                 <li>Bonne condition physique et mentale</li>
                 <li>Maîtrise du français et notions d'anglais</li>
             </ul>
         </div>
         
         <div class="footer">
-            <p>AERO SERVICES - Votre avenir dans l'aviation commence ici</p>
-            <p>Contact: info@aeroservices.com | Tél: +123 456 789</p>
+            <p>AERO FORMATIONS - Votre avenir dans l'aviation et le tourisme commence ici</p>
+            <p>Contact: zinzindohouemarcio@gmail.com | Tél: +2250172369840</p>
         </div>
     </div>
 
